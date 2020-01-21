@@ -1,0 +1,266 @@
+body {
+  background-color: black;
+  color: white;
+  font-family: "Lakki Reddy", cursive;
+  font-size: 16px;
+}
+
+input[type="number"] {
+  text-align: right;
+  font-size: 15px;
+  color: white;
+  background: #285b4e;
+  width: 34px;
+}
+
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 50px;
+  height: 50vh;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 100;
+  margin: 0px;
+}
+
+.subtitle {
+  font-family: "Inconsolata", monospace;
+  font-size: 24px;
+  font-weight: 100;
+  margin: 0px;
+}
+
+.logo {
+  font-size: 22px;
+  margin: 25px;
+  padding: 5px;
+  text-decoration: none;
+}
+
+.navbar-item {
+  border-bottom: 2px solid white;
+  color: #285b4e;
+  font-size: 22px;
+  margin: 20px;
+  padding: 5px;
+  text-decoration: none;
+}
+
+.selected {
+  border-bottom: 2px solid #285b4e;
+  color: white;
+  font-weight: 100;
+}
+
+.students-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.student-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.students-table {
+  background-color: rgb(51, 51, 51);
+  border-radius: 10px;
+  font-family: "Inconsolata", monospace;
+  padding: 25px 50px 50px 50px;
+}
+
+.student-row-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.student-table-actions {
+  border: 1px solid #641510;
+  border-radius: 3px;
+  color: white;
+  font-size: 24px;
+  margin-bottom: 7px;
+  padding: 0px 10px;
+  text-decoration: none;
+}
+
+.student-row {
+  display: flex;
+  justify-content: left;
+}
+
+.student-row-cell-title {
+  background-color: #285b4e;
+  border-radius: 3px;
+  margin-bottom: 7px;
+  padding: 10px 10px;
+  width: 150px;
+}
+
+.student-row-cell {
+  border-bottom: 1px solid #285b4e;
+  margin-bottom: 7px;
+  padding: 20px 10px;
+  width: 150px;
+}
+
+.list-item {
+  margin-bottom: 6px;
+}
+
+.cell-link {
+  border-radius: 3px;
+  border: 1px solid #285b4e;
+  color: white;
+  text-decoration: none;
+  padding: 15px;
+}
+
+.student-details-wrapper {
+  background-color: rgb(51, 51, 51);
+  border-radius: 10px;
+  font-family: "Inconsolata", monospace;
+  display: flex;
+}
+
+.add-student-details-wrapper {
+  background-color: rgb(51, 51, 51);
+  border-radius: 10px;
+  font-family: "Inconsolata", monospace;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 30px;
+}
+
+.student-detail {
+  width: 200px;
+  margin: 20px;
+}
+
+.detail-title {
+  border-bottom: 1px solid #285b4e;
+  padding-bottom: 6px;
+}
+
+.student-skills-courses-wrapper {
+  display: flex;
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  padding: 0px;
+  opacity: 0.5;
+  border: 3px solid #285b4e;
+  -webkit-animation: loader 1s ease-in-out infinite alternate;
+  animation: loader 1s ease-in-out infinite alternate;
+}
+
+.loader:before {
+  content: " ";
+  position: absolute;
+  z-index: -1;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border: 3px solid white;
+}
+
+.loader:after {
+  content: " ";
+  position: absolute;
+  z-index: -1;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border: 3px solid #285b4e;
+}
+
+@keyframes loader {
+  from {
+    transform: rotate(0deg) scale(1, 1);
+    border-radius: 0px;
+  }
+  to {
+    transform: rotate(360deg) scale(0, 0);
+    border-radius: 50px;
+  }
+}
+@-webkit-keyframes loader {
+  from {
+    -webkit-transform: rotate(0deg) scale(1, 1);
+    border-radius: 0px;
+  }
+  to {
+    -webkit-transform: rotate(360deg) scale(0, 0);
+    border-radius: 50px;
+  }
+}
+
+.spinner-students {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 100px 0;
+}
+
+.add-student-input {
+  font-family: "Inconsolata", monospace;
+  font-size: 18px;
+  margin: 0 20px;
+  outline: none;
+  width: 150px;
+}
+
+.button {
+  background-color: #285b4e;
+  border-radius: 3px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  height: 40px;
+  margin: 25px;
+  outline: none;
+  width: 100px;
+}
+
+.alert-container {
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  font-size: 48px;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  width: 50vw;
+  margin-top: 150px;
+}
+
+.success {
+  color: #285b4e;
+}
+
+.error {
+  color: rgb(100, 21, 16);
+}
+
+.input-number {
+  margin: 5px;
+  border: none;
+  outline: none;
+  height: 20px;
+}
