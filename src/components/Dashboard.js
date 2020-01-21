@@ -4,8 +4,11 @@ import Chart from "./Chart";
 
 const Dashboard = () => {
   const [data, setData] = useState([]);
+  const [existingSkillsNames, setExistingSkillsNames] = useState([]);
   const [existingSkillsCounts, setExistingSkillsCounts] = useState([]);
+  const [desiredSkillsNames, setDesiredSkillsNames] = useState([]);
   const [desiredSkillsCounts, setDesiredSkillsCounts] = useState([]);
+  const [interestedCoursesNames, setInterestedCoursesNames] = useState([]);
   const [interestedCoursesCounts, setInterestedCoursesCounts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -40,7 +43,7 @@ const Dashboard = () => {
 
   const getData = () => {
     axios
-      .get("/api/data")
+      .get("http://localhost:7000/api/skills-data")
       .then(res => {
         setData(res.data);
         setIsLoading(false);
@@ -55,69 +58,50 @@ const Dashboard = () => {
   }, []);
 
   useEffect(() => {
+    const existing_names = [];
+    const existing_counts = [];
     if (data[0] != undefined) {
-      setExistingSkillsCounts([
-        data[0].existing_alchemy,
-        data[0].existing_animation,
-        data[0].existing_conjuror,
-        data[0].existing_disintegration,
-        data[0].existing_elemental,
-        data[0].existing_healing,
-        data[0].existing_illusion,
-        data[0].existing_immortality,
-        data[0].existing_invisibility,
-        data[0].existing_invulnerability,
-        data[0].existing_necromancer,
-        data[0].existing_omnipresent,
-        data[0].existing_omniscient,
-        data[0].existing_poison,
-        data[0].existing_possession,
-        data[0].existing_self_detonation,
-        data[0].existing_summoning,
-        data[0].existing_water_breathing
-      ]);
+      data[0].existing_skills_count.map(skill => {
+        existing_names.push(skill.name);
+        existing_counts.push(skill.count);
+      });
+    }
+    setExistingSkillsNames(existing_names);
+    setExistingSkillsCounts(existing_counts);
+  }, [data]);
+
+  useEffect(() => {
+    if (data[1] != undefined) {
+      const desired_names = [];
+      const desired_counts = [];
+      if (data[1] != undefined) {
+        data[1].desired_skills_count.map(skill => {
+          desired_names.push(skill.name);
+          desired_counts.push(skill.count);
+        });
+      }
+      setDesiredSkillsNames(desired_names);
+      setDesiredSkillsCounts(desired_counts);
     }
   }, [data]);
 
   useEffect(() => {
-    if (data[0] != undefined) {
-      setDesiredSkillsCounts([
-        data[0].desired_alchemy,
-        data[0].desired_animation,
-        data[0].desired_conjuror,
-        data[0].desired_disintegration,
-        data[0].desired_elemental,
-        data[0].desired_healing,
-        data[0].desired_illusion,
-        data[0].desired_immortality,
-        data[0].desired_invisibility,
-        data[0].desired_invulnerability,
-        data[0].desired_necromancer,
-        data[0].desired_omnipresent,
-        data[0].desired_omniscient,
-        data[0].desired_poison,
-        data[0].desired_possession,
-        data[0].desired_self_detonation,
-        data[0].desired_summoning,
-        data[0].desired_water_breathing
-      ]);
-    }
-  }, [data]);
-
-  useEffect(() => {
-    if (data[0] != undefined) {
-      setInterestedCoursesCounts([
-        data[0].alchemy_basics,
-        data[0].alchemy_advanced,
-        data[0].magic_day_to_day,
-        data[0].magic_for_medical,
-        data[0].dating_with_magic
-      ]);
+    if (data[2] != undefined) {
+      const interested_names = [];
+      const interested_counts = [];
+      if (data[2] != undefined) {
+        data[2].interested_courses_count.map(skill => {
+          interested_names.push(skill.name);
+          interested_counts.push(skill.count);
+        });
+      }
+      setInterestedCoursesNames(interested_names);
+      setInterestedCoursesCounts(interested_counts);
     }
   }, [data]);
 
   const chartExistingSkillsData = {
-    labels: skills,
+    labels: existingSkillsNames,
     datasets: [
       {
         label: "Existing Skills",
@@ -147,7 +131,7 @@ const Dashboard = () => {
   };
 
   const chartDesiredSkillsData = {
-    labels: skills,
+    labels: desiredSkillsNames,
     datasets: [
       {
         label: "Existing Skills",

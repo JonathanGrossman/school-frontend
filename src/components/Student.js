@@ -43,6 +43,12 @@ const Student = () => {
                 *
               </Link>
             </div>
+            <p className="list-item">
+              {"Created: " + Date(student.create_time)}
+            </p>
+            <p className="list-item">
+              {"Last Updated: " + Date(student.update_time)}
+            </p>
             <div className="student-details-wrapper">
               <div className="student-detail">
                 <h3 className="detail-title">Existing Skills</h3>
