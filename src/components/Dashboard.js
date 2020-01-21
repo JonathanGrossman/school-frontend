@@ -179,25 +179,33 @@ const Dashboard = () => {
 
   return (
     <div>
-      <h1>Dashboard</h1>
-      {!isLoading && (
-        <Chart
-          chartData={chartExistingSkillsData}
-          text="Existing Skills In The School"
-        />
-      )}
-      {!isLoading && (
-        <Chart
-          chartData={chartDesiredSkillsData}
-          text="Desired Skills In The School"
-        />
-      )}
-      {!isLoading && (
-        <Chart
-          chartData={chartInterestedCoursesData}
-          text="Interested Courses In The School"
-        />
-      )}
+      <div className="pie-chart-wrapper">
+        <h1>Dashboard</h1>
+        {!isLoading && (
+          <div className="pie-chart">
+            <Chart
+              chartData={chartExistingSkillsData}
+              text="Existing Skills In The School"
+            />
+          </div>
+        )}
+        {!isLoading && (
+          <div className="pie-chart">
+            <Chart
+              chartData={chartDesiredSkillsData}
+              text="Desired Skills In The School"
+            />
+          </div>
+        )}
+        {!isLoading && (
+          <div className="pie-chart">
+            <Chart
+              chartData={chartInterestedCoursesData}
+              text="Interested Courses In The School"
+            />
+          </div>
+        )}
+      </div>
     </div>
   );
 };
