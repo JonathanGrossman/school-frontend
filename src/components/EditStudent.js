@@ -109,7 +109,11 @@ const EditStudent = () => {
 
   const sendFormData = () => {
     axios
-      .post("http://localhost:7000/api/edit-student/" + params.id, formData)
+      .post(
+        "https://arcane-coast-18801.herokuapp.com/api/edit-student/" +
+          params.id,
+        formData
+      )
       .then(res => {
         if (res.status === 200 || res.status === 201) {
           setAlertType("success");

@@ -50,7 +50,7 @@ const Dashboard = () => {
 
   const getSkillsData = () => {
     axios
-      .get("http://localhost:7000/api/skills-data")
+      .get("hhttps://arcane-coast-18801.herokuapp.com/api/skills-data")
       .then(res => {
         setSkillsData(res.data);
         setIsLoading(false);
@@ -60,7 +60,7 @@ const Dashboard = () => {
 
   const getSignupData = () => {
     axios
-      .get("http://localhost:7000/api/signup-counts")
+      .get("hhttps://arcane-coast-18801.herokuapp.com/api/signup-counts")
       .then(res => {
         setSignupData(res.data);
         setIsLoading(false);
@@ -72,7 +72,7 @@ const Dashboard = () => {
     setTimeout(() => {
       getSkillsData();
       getSignupData();
-    }, 1500);
+    }, 1000);
   }, []);
 
   useEffect(() => {

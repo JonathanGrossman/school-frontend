@@ -16,7 +16,7 @@ const Students = () => {
   ];
   const getStudents = () => {
     axios
-      .get("http://localhost:7000/api/students")
+      .get("https://arcane-coast-18801.herokuapp.com/api/students")
       .then(res => {
         setStudents(res.data);
         setIsLoading(false);
@@ -25,10 +25,8 @@ const Students = () => {
   };
 
   useEffect(() => {
-    setTimeout(() => {
-      getStudents();
-    }, 1000);
-  }, []);
+    getStudents();
+  }, [isLoading]);
 
   return (
     <div className="students-wrapper">

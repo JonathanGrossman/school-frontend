@@ -12,7 +12,7 @@ const Student = () => {
 
   const getStudent = () => {
     axios
-      .get("http://localhost:7000/" + params.id)
+      .get("https://arcane-coast-18801.herokuapp.com/" + params.id)
       .then(res => {
         setStudent(res.data);
         setIsLoading(false);
@@ -22,7 +22,10 @@ const Student = () => {
 
   const deleteUser = () => {
     axios
-      .post("http://localhost:7000/api/delete-student/" + params.id)
+      .post(
+        "https://arcane-coast-18801.herokuapp.com/api/delete-student/" +
+          params.id
+      )
       .then(res => {
         return console.log(res);
       })

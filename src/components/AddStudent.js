@@ -59,7 +59,10 @@ const AddStudent = () => {
 
   const sendFormData = () => {
     axios
-      .post("http://localhost:7000/api/add-student", formData)
+      .post(
+        "https://arcane-coast-18801.herokuapp.com/api/add-student",
+        formData
+      )
       .then(res => {
         if (res.status === 200) {
           setAlertType("success");
@@ -72,7 +75,6 @@ const AddStudent = () => {
 
   useEffect(() => {
     const user_uuid = Math.floor(Math.random() * 1000000000) + 1;
-    console.log(user_uuid.toString());
     const data = {
       id: user_uuid.toString(),
       first_name: firstName,
