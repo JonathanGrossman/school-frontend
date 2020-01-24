@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import Spinner from "./Spinner";
+import Button from "./Button";
+import { Redirect } from "react-router";
 
 const Student = () => {
   const [student, setStudent] = useState([]);
@@ -14,6 +16,15 @@ const Student = () => {
       .then(res => {
         setStudent(res.data);
         setIsLoading(false);
+      })
+      .catch(err => console.log(err.response.data, err.response.status));
+  };
+
+  const deleteUser = () => {
+    axios
+      .post("http://localhost:7000/api/delete-student/" + params.id)
+      .then(res => {
+        return console.log(res);
       })
       .catch(err => console.log(err.response.data, err.response.status));
   };
@@ -78,6 +89,10 @@ const Student = () => {
           </div>
         </div>
       )}
+      <div>
+        Delete deleteUser
+        <Button sendFormData={deleteUser} />
+      </div>
     </div>
   );
 };

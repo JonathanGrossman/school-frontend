@@ -2,19 +2,33 @@ import React from "react";
 import { Bar, Line, Pie } from "react-chartjs-2";
 
 const Chart = props => {
-  const { chartData, text } = props;
+  const { chartData, text, type } = props;
   return (
     <div>
-      <Pie
-        data={chartData}
-        options={{
-          title: {
-            display: "Students",
-            text: text,
-            fontSize: 25
-          }
-        }}
-      />
+      {type === "pie" && (
+        <Pie
+          data={chartData}
+          options={{
+            title: {
+              display: "Students",
+              text: text,
+              fontSize: 25
+            }
+          }}
+        />
+      )}
+      {type === "bar" && (
+        <Line
+          data={chartData}
+          options={{
+            title: {
+              display: "Students",
+              text: text,
+              fontSize: 25
+            }
+          }}
+        />
+      )}
     </div>
   );
 };

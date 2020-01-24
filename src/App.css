@@ -265,7 +265,14 @@ input[type="number"] {
   height: 20px;
 }
 
-.pie-chart-wrapper {
+.charts-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: end;
+  padding: 100px;
+}
+
+.chart-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -273,6 +280,11 @@ input[type="number"] {
 }
 
 .pie-chart {
-  margin: 30px 0;
-  width: 700px;
+  margin: 30px;
+  width: 600px;
+}
+
+.bar-chart {
+  margin: 30px;
+  width: 400px;
 }
