@@ -50,7 +50,7 @@ const Dashboard = () => {
 
   const getSkillsData = () => {
     axios
-      .get("hhttps://arcane-coast-18801.herokuapp.com/api/skills-data")
+      .get("https://arcane-coast-18801.herokuapp.com/api/skills-data")
       .then(res => {
         setSkillsData(res.data);
         setIsLoading(false);
@@ -60,7 +60,7 @@ const Dashboard = () => {
 
   const getSignupData = () => {
     axios
-      .get("hhttps://arcane-coast-18801.herokuapp.com/api/signup-counts")
+      .get("http://arcane-coast-18801.herokuapp.com/api/signup-counts")
       .then(res => {
         setSignupData(res.data);
         setIsLoading(false);
@@ -86,6 +86,7 @@ const Dashboard = () => {
     }
     setExistingSkillsNames(existing_names);
     setExistingSkillsCounts(existing_counts);
+    console.log(signupData);
   }, [skillsData]);
 
   useEffect(() => {

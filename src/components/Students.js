@@ -26,7 +26,11 @@ const Students = () => {
 
   useEffect(() => {
     getStudents();
-  }, [isLoading]);
+  }, []);
+
+  useEffect(() => {
+    console.log(students);
+  }, [students]);
 
   return (
     <div className="students-wrapper">

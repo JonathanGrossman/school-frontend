@@ -5,7 +5,7 @@ import Spinner from "./Spinner";
 import Button from "./Button";
 import { Redirect } from "react-router";
 
-const Student = () => {
+const Student = props => {
   const [student, setStudent] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   let params = useParams();
@@ -20,6 +20,10 @@ const Student = () => {
       .catch(err => console.log(err.response.data, err.response.status));
   };
 
+  const handleClick = () => {
+    deleteUser();
+  };
+
   const deleteUser = () => {
     axios
       .post(
@@ -27,7 +31,7 @@ const Student = () => {
           params.id
       )
       .then(res => {
-        return console.log(res);
+        props.history.push("/students");
       })
       .catch(err => console.log(err.response.data, err.response.status));
   };
@@ -93,8 +97,9 @@ const Student = () => {
         </div>
       )}
       <div>
-        Delete deleteUser
-        <Button sendFormData={deleteUser} />
+        <button className="delete-button" onClick={() => handleClick()}>
+          Delete Account
+        </button>
       </div>
     </div>
   );

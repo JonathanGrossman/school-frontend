@@ -6,7 +6,7 @@ import Alert from "./Alert";
 import axios from "axios";
 import Spinner from "./Spinner";
 
-const EditStudent = () => {
+const EditStudent = props => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [magicSkills, setMagicSkills] = useState([]);
@@ -155,7 +155,7 @@ const EditStudent = () => {
       )}
       {!isLoading && alertShowing && (
         <div className="alert-container">
-          <Alert type={alertType} />
+          <Alert type={alertType} h={props.history} />
         </div>
       )}
       {!isLoading && !alertShowing && (

@@ -4,7 +4,7 @@ import Button from "./Button";
 import Alert from "./Alert";
 import axios from "axios";
 
-const AddStudent = () => {
+const AddStudent = props => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [magicSkills, setMagicSkills] = useState([]);
@@ -56,7 +56,6 @@ const AddStudent = () => {
       setLastName(selected);
     }
   };
-
   const sendFormData = () => {
     axios
       .post(
@@ -79,8 +78,8 @@ const AddStudent = () => {
       id: user_uuid.toString(),
       first_name: firstName,
       last_name: lastName,
-      create_time: Date.now(),
-      update_time: Date.now(),
+      create_time: Date.now() / 1000,
+      update_time: Math.round(Date.now() / 1000),
       existing_skills: magicSkills,
       desired_skills: desiredSkills,
       interested_courses: interestedCourses
@@ -100,7 +99,7 @@ const AddStudent = () => {
     <div className="students-wrapper">
       {alertShowing && (
         <div className="alert-container">
-          <Alert type={alertType} />
+          <Alert type={alertType} h={props.history} />
         </div>
       )}
       {!alertShowing && (
