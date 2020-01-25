@@ -26,7 +26,7 @@ const Students = () => {
 
   useEffect(() => {
     getStudents();
-  }, [students]);
+  }, []);
 
   return (
     <div className="students-wrapper">
