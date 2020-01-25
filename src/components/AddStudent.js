@@ -79,7 +79,7 @@ const AddStudent = props => {
       first_name: firstName,
       last_name: lastName,
       create_time: Date.now() / 1000,
-      update_time: Math.round(Date.now() / 1000),
+      update_time: Date.now() / 1000,
       existing_skills: magicSkills,
       desired_skills: desiredSkills,
       interested_courses: interestedCourses

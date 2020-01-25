@@ -26,10 +26,6 @@ const Students = () => {
 
   useEffect(() => {
     getStudents();
-  }, []);
-
-  useEffect(() => {
-    console.log(students);
   }, [students]);
 
   return (
