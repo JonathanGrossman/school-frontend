@@ -86,7 +86,6 @@ const Dashboard = () => {
     }
     setExistingSkillsNames(existing_names);
     setExistingSkillsCounts(existing_counts);
-    console.log(signupData);
   }, [skillsData]);
 
   useEffect(() => {
